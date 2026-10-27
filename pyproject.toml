@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "snow-maze-runner"
+version = "1.0.1"
+description = "Pygame maze with DFS generation: play locally or via Telegram bot. SQLite leaderboard, headless render, Docker."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Dmitry Budenkov", email = "dima.budenkov@outlook.com" }]
+dependencies = ["pygame>=2.6.0", "python-telegram-bot>=21.0,<22.0", "python-dotenv>=1.0.0"]
+[project.optional-dependencies]
+dev = ["pytest>=8.0.0"]
+[project.scripts]
+snow-maze = "main:main"
+snow-maze-bot = "bot:main"
+[tool.setuptools]
+py-modules = ["main", "maze", "game", "db", "bot"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
